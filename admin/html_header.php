@@ -30,7 +30,16 @@
 		}else if($file_name == 'page_change_password'){
 			$header_title = 'Change Password';
 			$header_subtitle = 'Tierd of your old password?';
-		}else
+		}else if($file_name == 'page_set_password'){
+			$header_title = 'Set New Password';
+			$header_subtitle = 'Pick the rigth one.';
+		}else if($file_name == 'page_message_box'){
+			$header_title = 'Message Box';
+			$header_subtitle = 'You got mail!.';
+		}else{
+			$header_title = '';
+			$header_subtitle = '';
+		}
 	?>
 
 		<header class='masthead' >

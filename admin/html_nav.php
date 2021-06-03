@@ -19,6 +19,8 @@
 							
 							<li class='nav-item'><a class='nav-link' href='page_change_password.php'>Change Password</a></li>
 							
+							<li class='nav-item'><a class='nav-link' href='page_message_box.php'>Message Box</a></li>
+							
 							<li class='nav-item'><a class='nav-link' href='page_logout.php'>Logout</a></li>
 							";
 							

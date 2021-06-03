@@ -4,6 +4,11 @@
 		
 	}
 	
+	if(!isset($_GET['token'])){
+		
+		header("Location:index.php?msg=access_disable");
+	}
+	
 	#first call from email 
 	$_SESSION['user_token'] = $_GET['token'];
 	$_SESSION['user_name'] = $_GET['username'];
