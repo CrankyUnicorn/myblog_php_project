@@ -1,15 +1,10 @@
 		<div class='container'>
 			<div class='row'>
 				<div class='col-md-10 col-lg-8'>
+				
+					<?php if(isset($_SESSION['user_name'])) echo "<!--";?>
 					
-					
-					
-					<!---->
-					<form action="login.php" method="get" id="loginForm" name="login" >
-						
-						<div class="control-group">
-							<div class="form-floating controls mb-3"><input class="form-control" type="text" id="name" name="user_name" required="" placeholder="Name"><label class="form-label" for="name">Name</label><small class="form-text text-danger help-block"></small></div>
-						</div>
+					<form action="post_login.php" method="post" id="loginForm" name="loginForm" >
 						
 						<div class="control-group">
 							<div class="form-floating controls mb-3"><input class="form-control" type="email" id="email" name="user_email" required="" placeholder="Email Address"><label class="form-label">Email Address</label><small class="form-text text-danger help-block"></small></div>
@@ -26,8 +21,11 @@
 					
 					
 					<div class="container" style="background-color:#f1f1f1">
-						<span class="psw">Forgot <a href="#">password?</a></span>
+						<span class="psw">Forgot <a href="page_forgot_password.php">password?</a></span>
 					</div>
+					
+					<?php if(isset($_SESSION['user_name'])) echo "-->";?>
+					
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,8 @@
 <?php
+	if(!isset($_SESSION)){
+		session_start();
+	}
+	
 	require_once('html_start.php');
 	require_once('html_nav.php');
 	require_once('html_header.php');

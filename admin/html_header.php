@@ -6,10 +6,18 @@
 		
 		if($file_name == 'index'){
 			$header_title = 'Welcome';
-			$header_subtitle = 'Welcome.<br> Please enter your E-mail and Password.';
+			if(isset($_SESSION['user_name'])){
+				
+				$header_subtitle = $_SESSION['user_name'];
+			}else{
+				$header_subtitle = 'Please enter your E-mail and Password.';
+			}
 		}else if($file_name == 'page_register'){
 			$header_title = 'New Resgistry';
 			$header_subtitle = 'Please pick your E-mail and Password.';
+		}else if($file_name == 'page_forgot_password'){
+			$header_title = 'Forgot Password?';
+			$header_subtitle = 'Don\'t worry I got your back.';
 		}else if($file_name == 'page_logout'){
 			$header_title = 'Logout';
 			$header_subtitle = 'Going so soon?';

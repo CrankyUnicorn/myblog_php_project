@@ -5,10 +5,10 @@
 	
 	if(!isset($_POST['sentMessage'])){
 		
-		$message_name = $_POST['user_name'];
-		$message_phone = $_POST['user_phone'];
-		$message_email = $_POST['user_email'];
-		$message_content = $_POST['user_message'];
+		$message_name = addslashes($_POST['user_name']);
+		$message_phone = addslashes($_POST['user_phone']);
+		$message_email = addslashes($_POST['user_email']);
+		$message_content = addslashes($_POST['user_message']);
 		
 		$sql = "INSERT INTO contact_request (name, email, telephone, message) VALUES ('$message_name', '$message_email', '$message_phone', '$message_content' )";
 					

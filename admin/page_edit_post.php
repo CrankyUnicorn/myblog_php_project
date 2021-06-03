@@ -1,4 +1,5 @@
 <?php
+	require_once('get_restrict_access.php');
 	require_once('html_start.php');
 	require_once('html_nav.php');
 	require_once('html_header.php');
