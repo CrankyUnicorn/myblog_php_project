@@ -2,9 +2,9 @@
 
 	#localhost/agency/connection.php
 	
-	define("host","localhost:33063");
+	define("host","localhost");
 	define("user","root");
-	define("psw","Omega.000!");
+	define("psw","");
 	define("db","myblog");
 	define("msg","Database connection error");
 	

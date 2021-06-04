@@ -3,7 +3,7 @@
 	$to = $_GET['username'];
 	$token = $_GET['token'];
 	
-	$root_path = "http://localhost:8081/myblog";
+	$root_path = "http://localhost/myblog";
 	
 	$temp = mailtoemail($to, $token);
 	
