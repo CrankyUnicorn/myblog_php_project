@@ -20,7 +20,19 @@
 		$sql = "DELETE FROM page_post WHERE id = '$post_id' LIMIT 1";
 		$result = mysqli_query($connection, $sql) or die($sql);
 		header("Location:?deleted");
+	}else if(isset($_GET['page_forward'])){
+		
+		require_once('db_connect.php');
+		$page_num = $_GET['page_num'];
+		$page_num += 10;
+	}else if(isset($_GET['page_backward'])){
+		
+		require_once('db_connect.php');
+		$page_num = $_GET['page_num'];
+		$page_num -= 10;
+		
 	}
+	
 ?>
 
 
@@ -37,6 +49,32 @@
 			
 			
 			<?php
+					require_once('db_connect.php');
+					$sql = "SELECT count(*) as total FROM page_post";
+					$result = mysqli_query($connection, $sql);
+					$total_row = mysqli_fetch_assoc($result);
+					$total = $total_row['total'];
+					
+					
+					if(!isset($page_num)){
+						
+						$page_num = 1;
+					}else{
+						
+						if( $page_num < 1 ){
+							$page_num = 1;
+						}else if ($page_num > $total){
+							$page_num = $total;
+						}	
+					}
+					
+					$page_num_limit = $page_num+10;
+					
+					if($page_num_limit > $total){
+						$page_num_limit = $total;
+					}
+					
+			
 					if((!isset($_GET['edit'])) && (!isset($_GET['delete']))){
 						echo("
 						<table class='table table-striped'>
@@ -56,7 +94,7 @@
 							
 							require_once('db_connect.php');
 							//$sql = "SELECT * FROM page_post WHERE user_id = '".$_SESSION['user_id']."' LIMIT 0,10"; #option for limiting the ownership of the posts
-							$sql = "SELECT * FROM page_post LIMIT 0,10";
+							$sql = "SELECT * FROM page_post LIMIT $page_num, $page_num_limit";
 							$result = mysqli_query($connection, $sql);
 							
 							if((mysqli_num_rows($result))==0){
@@ -83,12 +121,15 @@
 								}
 							}
 					echo("
-							</tbody>
+						</tbody>
 						</table>
 						<br>
-						<button onclick='' class='btn btn-primary' style='display:inline; margin: 5px; padding: 5px;'>Backward</button>
-						<span>x of y</span>
-						<button onclick='' class='btn btn-primary' style='display:inline; margin: 5px; padding: 5px;'>Forward</button>
+						
+						<button onclick = 'window.location.href = \"?page_backward=page_backward&page_num=$page_num\";' class='btn btn-primary' style='display:inline; margin: 5px; padding: 5px;'>Backward</button>
+						
+						<span>$page_num to $page_num_limit of $total</span>
+						
+						<button onclick = 'window.location.href = \"?page_backward=page_backward&page_num=$page_num\";' class='btn btn-primary' style='display:inline; margin: 5px; padding: 5px;'>Forward</button>
 					");		
 					}else{
 						

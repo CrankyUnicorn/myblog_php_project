@@ -29,8 +29,10 @@
 						</div>
 						
 						<div id="success"></div>
-						<div class="mb-3"><button class="btn btn-primary" id="postButton" type="submit">Post</button></div>
+						<div class="mb-3"><button class="btn btn-primary" id="postButton" name="post_form" type="submit">Post</button></div>
 					</form>
+					
+					<div class="mb-3"><button class="btn btn-primary" onclick="window.location.href = 'page_upload_image.php';" id="postButton" type="submit">Upload Image</button></div>
 			
 		</div>
 	</div>
